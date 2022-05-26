@@ -1,0 +1,59 @@
+<h3 style="padding: 10px">Tela de Categoria</h3>
+
+<form style="padding: 10px" >
+  <div class="form-row">
+    <div class="form-group col-md-1">
+      <label for="id">ID</label>
+      <input
+        type="text"
+        [(ngModel)]="category.id"
+        class="form-control"
+        id="id"
+        readonly="true"
+        name="id"
+        autocomplete="false"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="nome">Nome</label>
+      <span style="color: red; font-size: 23px"> *</span>
+      <input
+        type="text"
+        [(ngModel)]="category.name"
+        class="form-control"
+        id="name"
+        required="true"
+        name="name"
+        autocomplete="false"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <button
+        type="button"
+        [routerLink]="['/categoryList']"
+        routerLinkActive="router-link-active"
+        class="btn btn-primary"
+      >
+        Voltar
+      </button>
+      <button
+        [routerLink]="['/categoryForm']"
+        routerLinkActive="router-link-active"
+        type="button" class="btn btn-primary" (click)="novo()" style="margin-left: 10px">
+        Novo
+      </button>
+      <button 
+        type="button" class="btn btn-primary" 
+        (click)="category.id!=null? categoryUpdate() : categorySave()"
+        style="margin-left: 10px">
+        Salvar
+      </button>
+    </div>
+  </div>
+</form>

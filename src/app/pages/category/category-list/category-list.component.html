@@ -1,0 +1,67 @@
+<br />
+<br />
+
+<form class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      [(ngModel)]="name"
+      placeholder="Pesquisa por nome"
+    />
+  </div>
+
+  <button
+    type="button"
+    (click)="findCategoryByName()"
+    class="btn btn-primary mb-2"
+  >
+    Buscar
+  </button>
+
+  <button
+    type="button"
+    [routerLink]="['/categoryForm']"
+    routerLinkActive="router-link-active"
+    style="margin-left: 5px"
+    class="btn btn-success mb-2"
+  >
+    Novo
+  </button>
+</form>
+
+<br />
+<br />
+
+<table class="table">
+  <thead class="thread-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.id }}</td>
+      <td>{{ category.name }}</td>
+      <td>
+        <button (click)="cetegoryDelete(category.id)" class="btn btn-primary">
+          Delete
+        </button>
+      </td>
+      <td>
+        <button
+        [routerLink]="['/categoryForm', category.id]"
+        routerLinkActive="router-link-active"
+          class="btn btn-warning"
+        >
+          Editar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
